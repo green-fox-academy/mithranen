@@ -1,0 +1,72 @@
+    body {
+        background-image: url(assets/background.png) no-repeat;
+        padding: 0;
+        margin: 0;
+        font-family: Courier, 'Courier New', monospace;
+        text-align: justify;
+        line-height: 1.5;
+    }
+    
+    nav,
+    main,
+    footer {
+        padding: 0 10%;
+    }
+    
+    header {
+        background-color: #333333;
+        text-align: right;
+        font-family: 'Train One', cursive;
+    }
+    
+    #logo {
+        float: left;
+        position: relative;
+        padding-top: 10px;
+    }
+    
+    .topnav a {
+        display: inline-block;
+        color: #FF0099;
+        padding: 16px 16px;
+        text-decoration: none;
+        font-size: 14px;
+        text-decoration: underline;
+        text-transform: uppercase
+    }
+    
+    .first-subdiv {
+        padding-top: 50px;
+        padding-bottom: 25px;
+    }
+    
+    .second-subdiv {
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+    
+    footer {
+        padding-bottom: 50px;
+    }
+    
+    hr {
+        border: none;
+        border-top: 2px dashed black;
+        color: #fff;
+        background-color: #fff;
+        width: 23px;
+    }
+    
+    h1 {
+        font-weight: bolder;
+        font-size: 46px;
+    }
+    
+    h2 {
+        color: #FF0099;
+    }
+    
+    h3 {
+        text-align: center;
+        font-size: 32px;
+    }
