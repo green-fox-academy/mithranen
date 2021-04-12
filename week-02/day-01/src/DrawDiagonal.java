@@ -40,3 +40,4 @@ public class DrawDiagonal {
           System.out.print("%");
         } else if (j == i) {
           System.out.print("%");*/
+

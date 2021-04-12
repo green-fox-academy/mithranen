@@ -2,6 +2,8 @@
 out
 *.iml
 *.xml
+Array_home_exercise.java
+Array_home_exercise_2.java
 
 # if you have a mac
 .DS_Store
