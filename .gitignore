@@ -2,10 +2,11 @@
 out
 *.iml
 *.xml
+*.log
 Array_home_exercise.java
 Array_home_exercise_2.java
 Arrays_home_function.java
-.log
+
 
 # if you have a mac
 .DS_Store
