@@ -1,6 +1,8 @@
-import javax.swing.*;
-
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
@@ -20,8 +22,8 @@ public class FourRectangles {
         (int) (Math.random() * 320 - WIDTH / 10)
         , (int) (Math.random() * 320));
 
-   graphics.setColor(new Color(0xD50C45));
-   graphics.drawRect(WIDTH/3,WIDTH/3, WIDTH/3, WIDTH/3);
+    graphics.setColor(new Color(0xD50C45));
+    graphics.drawRect(WIDTH / 3, WIDTH / 3, WIDTH / 3, WIDTH / 3);
   }
 
 //solution with for loop and MAth.random....
@@ -50,3 +52,4 @@ public class FourRectangles {
     }
   }
 }
+

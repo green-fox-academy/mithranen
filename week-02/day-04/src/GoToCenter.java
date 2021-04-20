@@ -35,12 +35,12 @@ public class GoToCenter {
     jFrame.pack();
   }
 
-static class ImagePanel extends JPanel {
+  static class ImagePanel extends JPanel {
 
-  @Override
-  protected void paintComponent(Graphics graphics) {
-    super.paintComponent(graphics);
-    drawImage(graphics);
+    @Override
+    protected void paintComponent(Graphics graphics) {
+      super.paintComponent(graphics);
+      drawImage(graphics);
+    }
   }
-}
 }

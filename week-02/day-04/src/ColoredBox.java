@@ -1,8 +1,9 @@
-import javax.swing.*;
-
-import java.awt.*;
-
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class ColoredBox {
 

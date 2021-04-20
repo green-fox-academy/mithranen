@@ -1,30 +1,30 @@
-import static javax.swing.JFrame.EXIT_ON_CLOSE;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 
-public class Diagonals {
+import java.awt.*;
+
+import static javax.swing.JFrame.EXIT_ON_CLOSE;
+
+public class CenterBoxFunction {
 
   public static void drawImage(Graphics graphics) {
-    // Create a function that draws a single line
-    // Use this function to draw the canvas' diagonals
-    // If the line starts from the upper-left corner it should be green, otherwise it should be red
-    // Make decision about the color in the function
-    for (int i = -1; i < 5; i++) {
-      drawLine(i * 50, 0, graphics);
+    // Create a function that takes 2 parameters and draws one square
+    // Parameters: the square size and the graphics
+    // The function shall draw a square of that size to the center of the canvas
+    // Draw 3 squares with that function
+    // (the squares should not be filled otherwise they will hide each other)
+    // Avoid code duplication!
+    int side1 = WIDTH / 3;
+    int side2 = WIDTH / 3;
+    for (int i = 0; i < 3; i++) {
+      graphics.drawRect(10 + side1+i, 15 + side2+i, side1 + 5+i, i+side2 - 5);
     }
   }
 
-  public static void drawLine(int x, int fx, Graphics g) {
-    if (x == 0 && fx == 0) {
-      g.setColor(Color.green);
-    } else {
-      g.setColor(Color.RED);
-    }
-    g.drawLine(x, fx, x + WIDTH, fx + HEIGHT);
+  public static void drawSquare(Graphics g, int side1, int side2) {
+    g.setColor(Color.black);
+    g.drawRect(side1, side2, side1 , side2);
   }
+
 
   // Don't touch the code below
   static int WIDTH = 320;
