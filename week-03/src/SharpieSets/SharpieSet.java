@@ -37,6 +37,7 @@ public class SharpieSet {
     for (int i = 0; i < sharpieSet.size(); i++) {
       if (sharpieSet.get(i).getInkAmount() == 0) {
         sharpieSet.remove(i);
+        i--;
       }
     }
   }

@@ -32,7 +32,6 @@ public class Main {
     System.out.println("---------------");
 
     //Delete one sharpie
-//sharpieList.removeTrash();
     sharpieList.removeTrash();
 
     System.out.println(sharpieList.countUsable());
