@@ -14,7 +14,7 @@ public class CountLines {
 // and should not raise any error.
 
   public static void main(String[] args) throws IOException {
-    //int myFile = readMyFile("src/my-file.txt");
+    int myFile = readMyFile("src/my-file.txt");
     System.out.println(readMyFile("src/my-file.txt"));
   }
 
@@ -25,7 +25,7 @@ public class CountLines {
       List<String> inputFileLines = Files.readAllLines(inputFilePath);
       return inputFileLines.size();
     } catch (IOException e) {
-     //System.err.println("Unable to read file: my-file.txt");
+     System.err.println("Unable to read file: my-file.txt");
       return 0;
     }
   }
