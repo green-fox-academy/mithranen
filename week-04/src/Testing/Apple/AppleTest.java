@@ -2,6 +2,7 @@ package Testing.Apple;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import Apple.Apple;
 import org.junit.jupiter.api.Test;
 //!Create a class, with one method (eg. public String getApple()) that returns a string (eg. "apple")
 //!    Create a test for that.

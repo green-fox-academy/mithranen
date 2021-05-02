@@ -1,4 +1,4 @@
-package Testing.Apple;
+package Apple;
 
 public class Apple {
 

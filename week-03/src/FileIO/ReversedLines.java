@@ -8,7 +8,7 @@ import java.util.List;
 public class ReversedLines {
 
   public static void main(String[] args) {
-    String fileName = "data/reversed-lines.txt";
+    String fileName = "src/FileIO/data/reversed-lines";
     List<String> lines = readAllLines(fileName);
     for (String line : lines
     ) {
@@ -19,7 +19,7 @@ public class ReversedLines {
   public static List<String> readAllLines(String fileName) {
     List<String> lines;
     try {
-      //lines = Files.readAllLines(Paths.get("data/reversed-lines.txt"));
+      //lines = Files.readAllLines(Paths.get("FileIO.data/reversed-lines.txt"));
       //return lines;
       return Files.readAllLines(Paths.get(fileName));
     } catch (IOException e) {

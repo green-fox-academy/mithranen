@@ -1,5 +1,4 @@
 package FileIO;
-
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -15,13 +14,13 @@ public class WriteSingleLine {
     // In case the program is unable to write the file,
     // it should print the following error message: "Unable to write file: my-file.txt".
 
-    Path inputFilePath = Paths.get("data/my-file.txt");
+    Path inputFilePath = Paths.get("src/FileIO/data/my-file.txt"); // ha elcseszed a fáljutat akkor kiírja h nem olvasható be
     List <String> myList = Arrays.asList("Viktor", "Viktor", "Viktor");
     try {
       Files.write(inputFilePath, myList);
     } catch (IOException e) {
       e.printStackTrace();
-      System.out.println("Unable to write file: my-file.txt");
+      System.err.println("Unable to write file: my-file.txt");
     }
     System.out.println(myList);
   }
