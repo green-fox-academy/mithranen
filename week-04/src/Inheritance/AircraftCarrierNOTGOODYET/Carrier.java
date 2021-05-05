@@ -28,9 +28,9 @@ public class Carrier {
     this.storedAmmo = storedAmmo;
     this.healthPoints = healthPoints;
   }
+
   //
   //Methods
-
   public void add(Aircraft aircraft) {
     aircrafts.add(aircraft);
   }
@@ -69,19 +69,20 @@ public class Carrier {
 //    }
 
   // HP: 5000, Aircraft count: 5, Ammo Storage: 2300, Total damage: 2280
-/*  public String getStatus(Carrier carrier) {
+  public String getStatus(Carrier carrier) {
     if (healthPoints == 0) {
       return "";
     }
     String status = "HP: " + healthPoints + "| " + "Aircraft count: " + aircrafts.size() + "| "
-        + "Ammo Storage: " + storedAmmo + "| " + "Total damage: " + aircrafts.size() *  ";
+        + "Ammo Storage: " + storedAmmo + "| " + "Total damage: " + aircrafts.size() *  "
 
     for (Aircraft aircraft : aircrafts) {
       StringBuilder sb = new StringBuilder();
       status = sb.append(status).toString();
     }
-    return status;*/
+    return status;
   }
+}
 //
 //#### getStatus()
 //

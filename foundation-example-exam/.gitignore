@@ -1,0 +1,10 @@
+.idea
+out
+*.iml
+*.xml
+*.log
+Ł
+
+
+# if you have a mac
+.DS_Store

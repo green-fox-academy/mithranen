@@ -1,4 +1,4 @@
-package Arrays;
+package Arrays.homeExercises;
 
 import java.sql.SQLOutput;
 import java.util.Arrays;

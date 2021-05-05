@@ -85,6 +85,12 @@ public class ProductDatabase {
     }
     return false;
   }
+
+/*  int productBelow = 0;
+    for (Map.Entry<String, Integer> entry : productList.entrySet()) {
+    if (entry.getValue() < 300) {
+      productBelow +=1;*/
+
 }
 
 
