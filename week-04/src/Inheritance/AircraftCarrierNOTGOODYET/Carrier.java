@@ -69,7 +69,7 @@ public class Carrier {
 //    }
 
   // HP: 5000, Aircraft count: 5, Ammo Storage: 2300, Total damage: 2280
-  public String getStatus(Carrier carrier) {
+/*  public String getStatus(Carrier carrier) {
     if (healthPoints == 0) {
       return "";
     }
@@ -81,7 +81,7 @@ public class Carrier {
       status = sb.append(status).toString();
     }
     return status;
-  }
+  }*/
 }
 //
 //#### getStatus()

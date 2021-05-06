@@ -1,7 +1,7 @@
 package Testing.Fibonacci;
 
-import java.sql.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 //
@@ -11,19 +11,56 @@ import java.util.List;
 public class Fibonacci {
 
   public static void main(String[] args) {
+    System.out.println(getFibonacciByIndex(4));
+  }
 
+  //methods
+  public static long getFibonacciByIndex(int givenIndex) {
+    if (givenIndex > 101) {
+      throw new IllegalArgumentException(
+          "This list is not able to show you more than 101 member of fibonacci!");
+    }
+    //fibonacci
+
+    List<Long> fibonacciList = new ArrayList<>();
     long firstNum = 0;
+    fibonacciList.add(firstNum);
     long secondNum = 1;
-    List<Long> fibonacci = makeFibonacci(firstNum, secondNum);
+    fibonacciList.add(secondNum);
 
-    System.out.println(makeFibonacci(firstNum, secondNum));
+    for (int i = 0; i < 100; i++) {             ///h lesz végtelen?
+      long thirdNum = firstNum + secondNum;
+      fibonacciList.add(thirdNum);
+      firstNum = secondNum;
+      secondNum = thirdNum;
+    }
 
-    System.out.println(getFibonacciIndex(fibonacci, 10));
+    for (Long fibonacciNum : fibonacciList) {
+      if (fibonacciList.get(givenIndex).equals(fibonacciNum)) {
+        return fibonacciNum;
+      }
+    }
+    return 0;
+  }
+}
+
+
+
+  /*public static void main(String[] args) {
+
+
+    List<Long> fibonacci = makeFibonacci();
+
+    System.out.println(makeFibonacci());
+
+    System.out.println(getFibonacciIndex(fibonacci, 6));
 
   }
 
   //methods
-  public static List<Long> makeFibonacci(long firstNum, long secondNum) {
+  public static List<Long> makeFibonacci() {
+    long firstNum = 0L;
+    long secondNum = 1L;
     // if Fibonacci number is less than 2,
     // its index will be same as number
     //if (n <= 2) {
@@ -34,7 +71,7 @@ public class Fibonacci {
     fibonacciList.add(firstNum);
     fibonacciList.add(secondNum);
     //System.out.print(firstNum + ", " + secondNum);
-    for (int i = 0; i < fibonacciList.size(); i++) {             ///h lesz végtelen?
+    for (int i = 0; i < 100; i++) {             ///h lesz végtelen?
       long thirdNum = firstNum + secondNum;
       //System.out.print(", " + thirdNum);
       fibonacciList.add(thirdNum);
@@ -46,11 +83,9 @@ public class Fibonacci {
 
   public static long getFibonacciIndex(List<Long> list, int givenIndex) {
     for (Long fibonacciNum : list) {
-      if (list.get(givenIndex) == fibonacciNum) {
+      if (list.get(givenIndex).equals(fibonacciNum)) {
         return fibonacciNum;
       }
     }
     return 0;
-  }
-}
-
+  }*/

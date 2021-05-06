@@ -1,0 +1,17 @@
+  //
+  //Fields
+
+
+  //
+  //Constructors
+
+
+  //
+  //Methods
+
+
+  //
+  //Getter and setter
+
+  Arrays
+  List<String> swearWords = new ArrayList<>(Arrays.asList("fuck", "bloody", "cock", "shit", "fucker", "fuckstick", "asshole", "dick", "piss", "cunt"));
