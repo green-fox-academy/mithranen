@@ -10,7 +10,7 @@ public class MileToKmConverter {
     System.out.println("Please, type your number in miles:");
     Scanner userMiles = new Scanner(System.in);
     String userRequestMiles = userMiles.nextLine();
-    double doubleUserRequestMiles = Double.valueOf(userRequestMiles).doubleValue();
+    double doubleUserRequestMiles = Double.parseDouble(userRequestMiles);
     System.out.println(doubleUserRequestMiles * 1.61 + " km");
   }
 }

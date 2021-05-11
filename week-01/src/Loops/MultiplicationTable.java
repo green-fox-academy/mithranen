@@ -10,8 +10,8 @@ public class MultiplicationTable {
     System.out.println("Give a number:");
     int inputNumber = scanner.nextInt();
     for (int i = 1; i < 11; i++) {
-      //System.out.printf("%d * %d = %d \n", i, inputNumber, i * inputNumber);
-      System.out.println(i + " * " + inputNumber + " = " + i * inputNumber);
+      System.out.printf("%d * %d = %d \n", i, inputNumber, i * inputNumber);
+      //System.out.println(i + " * " + inputNumber + " = " + i * inputNumber);
     }
   }
 }

@@ -1,23 +1,16 @@
 package FileIO;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.nio.ReadOnlyBufferException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.NoSuchFileException;
-import java.nio.file.OpenOption;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.ReadOnlyFileSystemException;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.NoSuchElementException;
-import javax.lang.model.element.NestingKind;
 
 // Create a method that decrypts the duplicated-chars.txt.
 // Decryption is the process reversing an encryption, i.e. the process
@@ -68,7 +61,7 @@ public class Doubled {
     textWriteInto = Arrays.asList(output.toString());
 
     //Converted text write into new file
-    Path outPutPath = Paths.get(pathStr + "_enctypted3");
+    Path outPutPath = Paths.get(pathStr + "_encrypted");
 
     Files.write(outPutPath, textWriteInto, StandardCharsets.UTF_8, StandardOpenOption.CREATE);
 

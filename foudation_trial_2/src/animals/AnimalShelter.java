@@ -11,9 +11,9 @@ public class AnimalShelter {
 
 
   public AnimalShelter() {
-    budget = 50;
-    animals = new ArrayList<>();
-    adopters = new ArrayList<>();
+    this.budget = 50;
+    this.animals = new ArrayList<>();
+    this.adopters = new ArrayList<>();
   }
 
   public int rescue(Animal animal) {
