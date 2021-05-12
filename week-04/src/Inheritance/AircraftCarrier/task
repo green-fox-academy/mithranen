@@ -28,13 +28,15 @@ All aircrafts should be created with an empty ammo storage
 
 #### refillAmmo()
 
-- It should take a number as parameter that represents the ammunition coming
+-! It should take a number as parameter that represents
+the ammunition coming
   from a station
-- Increase the ammo of the aircraft by the right amount
+-! Increase the ammo of the aircraft by the right amount
 - It can't have more ammo than the parameter value or the max ammo
   of the aircraft
 - It should return the remaining (unused) ammo
-- Eg. Filling an empty F35 with `300` would completely fill the storage of the
+- Eg. Filling an empty F35 with `300` would completely
+fill the storage of the
   aircraft and would return the remaining `288`
 
 #### getType()

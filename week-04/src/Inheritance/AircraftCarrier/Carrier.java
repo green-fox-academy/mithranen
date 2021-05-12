@@ -1,4 +1,4 @@
-package Inheritance.AircraftCarrierNOTGOODYET;
+package Inheritance.AircraftCarrier;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,13 +18,14 @@ public class Carrier {
 
   //
   //Fields
-  List<Aircraft> aircrafts = new ArrayList<>();
+  private List<Aircraft> aircrafts;
   private int storedAmmo;
   private int healthPoints;
 
   //
   //Constructors
   public Carrier(int storedAmmo, int healthPoints) {
+    this.aircrafts = new ArrayList<>();
     this.storedAmmo = storedAmmo;
     this.healthPoints = healthPoints;
   }
@@ -35,6 +36,19 @@ public class Carrier {
     aircrafts.add(aircraft);
   }
 
+  //Jó de egy szót nem értek belőle - TODO hardcore one, why...
+  // --> Comparable interface (Aircraft) --> compareTo override (Aircraft) --> Collection.sort using (Carrier)
+/*  public void fill() {
+    Collections.sort(aircrafts);
+    for (Aircraft aircraft : aircrafts) {
+      storedAmmo = aircraft.refillAmmo(storedAmmo);
+      if (storedAmmo == 0) {
+        throw new IllegalArgumentException("There is not enough ammo!");
+      }
+    }
+  }*/
+
+  //Earlier solution for fill()
   public void fill() {
     for (Aircraft aircraft : aircrafts) {
       if (aircraft.isPriority()) {
@@ -55,52 +69,52 @@ public class Carrier {
   }
 
   public void fight(Carrier enemyCarrier) {
-    int damagedHealth = 0;
+    int damagedHealth = enemyCarrier.healthPoints;
     for (Aircraft aircraft : aircrafts) {
-//   damagedHealth = Carrier.this.healthPoints - aircraft.getCurrentAmmo()*aircraft.getBaseDamage(); (fight ugyanezt csinálja ezárt felesleges szorozni)
-      damagedHealth = enemyCarrier.healthPoints - aircraft.fight();
+//   damagedHealth = enemyCarrier.healthPoints - aircraft.getCurrentAmmo()*aircraft.getBaseDamage(); (fight ugyanezt csinálja ezárt felesleges szorozni)
+      damagedHealth -= aircraft.fight();
     }
     enemyCarrier.healthPoints = damagedHealth;
-  }
-
 //    Gergő megoldása
 //    for (Aircraft aircraft : aircrafts) {
 //      enemyCarrier.healthPoints -= aircraft.fight();
 //    }
+  }
+
 
   // HP: 5000, Aircraft count: 5, Ammo Storage: 2300, Total damage: 2280
-/*  public String getStatus(Carrier carrier) {
+  public String getStatus() {
     if (healthPoints == 0) {
-      return "";
+      return "It's dead Jim :(";
     }
-    String status = "HP: " + healthPoints + "| " + "Aircraft count: " + aircrafts.size() + "| "
-        + "Ammo Storage: " + storedAmmo + "| " + "Total damage: " + aircrafts.size() *  "
+
+    StringBuilder status = new StringBuilder(
+        "HP: " + healthPoints + " | " + "Aircraft count: " + aircrafts.size() + " | "
+            + "Ammo Storage: " + storedAmmo + " | " + "Total damage: "
+            + totalDamageOfCarriersAircrafts() + "\n" + "Aircrafts: " + "\n");
 
     for (Aircraft aircraft : aircrafts) {
-      StringBuilder sb = new StringBuilder();
-      status = sb.append(status).toString();
+      status.append(aircraft.getStatus());
+    }
+
+    return status.toString();
+  }
+
+  /*  public List<String> getAllAircraftsStatus() {
+    List<String> status = new ArrayList<>();
+    for (Aircraft aircraft : aircrafts) {
+      status.add(aircraft.getStatus());
     }
     return status;
   }*/
-}
-//
-//#### getStatus()
-//
-//  It should return a string describing its, and all of its aircrafts'
-//  statuses in the following format:
-//
-//      ```text
-//
-//  Aircrafts:
-//  Type F35, Ammo: 12, Base Damage: 50, All Damage: 600
-//  Type F35, Ammo: 12, Base Damage: 50, All Damage: 600
-//  Type F35, Ammo: 12, Base Damage: 50, All Damage: 600
-//  Type F16, Ammo: 8, Base Damage: 30, All Damage: 240
-//  Type F16, Ammo: 8, Base Damage: 30, All Damage: 240
-//      ```
-//
-//  If the health points are 0 then it should return: `It's dead Jim :(`
-//
 
-//
+  private int totalDamageOfCarriersAircrafts() {
+    int aircraftsCurrentDamage = 0;
+    for (Aircraft aircraft : aircrafts) {
+      aircraftsCurrentDamage += aircraft.getCurrentDamage();
+    }
+    return aircraftsCurrentDamage;
+  }
+
+}
 //Getter and setter

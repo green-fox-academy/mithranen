@@ -1,4 +1,4 @@
-package Inheritance.AircraftCarrierNOTGOODYET;
+package Inheritance.AircraftCarrier;
 //Max ammo: 12
 //Base damage: 50
 //aircraftType="F35"

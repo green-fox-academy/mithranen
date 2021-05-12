@@ -48,10 +48,7 @@ public class Log {
 
     for (String line : list) {
       String[] lineAsThreeString = line.split("   "); //-->"   "
-      for (int i = 0; i < lineAsThreeString.length; i++) {
-        String uniqueIp = lineAsThreeString[1];
-        ipAddresses.add(uniqueIp);
-      }
+      ipAddresses.add(lineAsThreeString[1]);
     }
     //return ipAddresses.toArray(new String[0]);
     return ipAddresses.toArray(new String[]{});
