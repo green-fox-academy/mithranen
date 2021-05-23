@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My first website</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Train+One&display=swap" rel="stylesheet">
+
+    <body>
+        <header>
+            <nav>
+                <img id="logo" src="assets/aperture.svg" alt="logo">
+                <div class="topnav">
+                    <a class="active" href="#home">Home</a>
+                    <a href="https://en.wikipedia.org/wiki/Main_Page" target="_blank">Wiki</a>
+                    <a href="https://github.com/mithranen" target="_blank">GitHub</a>
+                    <a href="https://linkedin.com/in/hajnoczky-viktor-8b9725208" target="_blank">Linkedin</a>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            </div>
+            <div class="first-subdiv">
+                <table>
+                    <tr>
+                        <th>id</th>
+                        <th>Name</th>
+                        <th>Valuate in Zebra</th>
+                        <th>Species</th>
+                        <th>Status</th>
+                        <th>Reliability</th>
+                    </tr>
+                    <tr th:each="(account, accountStat :${accountList})">
+                        <td th:text="'#'+${accountStat.count}"></td>
+                        <td th:text="${account.getName}"></td>
+                        <td th:text="${account.getBalance}"></td>
+                        <td th:text="${account.getAnimalType}"></td>>
+                        <td th:text="${account.decideIsKing}" th:attr="class=${account.vlmi}"></td>
+                        <td th:text="${account.isReliable}"></td>
+                    </tr>
+                </table>
+
+            </div>
+            <hr>
+
+        </main>
+        <footer>
+            <h4>Thank you for your attention!</h4>
+            <a href="#">Back to top</a>
+        </footer>
+    </body>
+
+</html>

@@ -1,0 +1,114 @@
+    body {
+        background-image: url(assets/table.jpg);
+        padding: 0;
+        margin: 0;
+        font-family: 'Dancing Script', cursive;
+        text-align: justify;
+        line-height: 1.5;
+    }
+    
+    form {
+        display: inline;
+    }
+    
+    nav,
+    main,
+    footer {
+        padding: 0 10%;
+    }
+    
+    header {
+        background-color: #533f3f;
+        text-align: right;
+        font-family: 'Train One', cursive;
+    }
+    
+    #logo {
+        float: left;
+        position: relative;
+        padding-top: 10px;
+        size: 20 px;
+    }
+    
+    .topnav a {
+        display: inline-block;
+        color: gold;
+        padding: 16px 16px;
+        text-decoration: none;
+        font-size: 14px;
+        text-decoration: underline;
+        text-transform: uppercase
+    }
+    
+    .first-subdiv {
+        padding-top: 50px;
+        padding-bottom: 25px;
+    }
+    
+    .second-subdiv {
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+    
+    footer {
+        padding-bottom: 50px;
+        text-align: right;
+    }
+    
+    tfoot,
+    #last-th,
+    #first-th {
+        background-color: #856e6e;
+        color: gold;
+        font-weight: bolder;
+    }
+    
+    table,
+    th,
+    td {
+        border: 3px solid gold;
+        border-collapse: collapse;
+    }
+    
+    tr:nth-child(odd) {
+        background-color: #f2f2f2;
+    }
+    
+    tr:nth-child(even) {
+        background-color: #f2f2f2a1;
+    }
+    
+    tfoot {
+        text-align: right;
+    }
+    
+    hr {
+        border: none;
+        border-top: 2px dashed black;
+        color: #fff;
+        background-color: #fff;
+        width: 23px;
+    }
+    
+    h1 {
+        font-weight: bolder;
+        font-size: 46px;
+    }
+    
+    h2 {
+        color: rgb(247, 210, 0);
+    }
+    
+    h3 {
+        text-align: center;
+        font-size: 32px;
+    }
+    
+    h4 {
+        color: gold;
+    }
+    
+    button {
+        border-radius: 5px;
+        font-family: 'Dancing Script', cursive;
+    }

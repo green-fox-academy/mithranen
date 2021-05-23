@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ahoy Wanderer!</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap"
+        rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css"/>
+
+<body>
+<header>
+  <nav>
+    <img id="logo" src="/img/logo.png" alt="logo">
+    <div class="topnav">
+      <a class="active" href="#home">Home</a>
+      <a href="https://en.wikipedia.org/wiki/Main_Page" target="_blank">Wiki</a>
+      <a href="https://github.com/mithranen" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/hajnoczky-viktor-8b9725208" target="_blank">Linkedin</a>
+    </div>
+  </nav>
+</header>
+
+<body>
+
+<main>
+  <h1>Ahoy Wanderer t' The Ship o' Good Ole Potions 'n Herbs!</h1>
+  <h2>Please take a look at our offer o' the
+    best ingredients available at the most honest prices in our modest store 'n if ye like, buy from
+    it 'n take our fair name.</h2>
+  <div class="first-subdiv">
+    <form class="buttons" method="GET">
+      <button class="main" type="submit" formaction="/webshop">All good ones</button>
+      <button class="main" type="submit" formaction="/only-available">Only Available</button>
+      <button class="main" type="submit" formaction="/cheapest-first">Cheapest First</button>
+      <button class="main" type="submit" formaction="/contains-poison">Contains Poison</button>
+      <button class="main" type="submit" formaction="/average-stock">Average Stock</button>
+      <button class="main" type="submit" formaction="/most-expensive">Most Expensive Available
+      </button>
+    </form>
+    </form>
+    <form class="search-bar" action="/search" method="POST">
+      <input class="main" name="search" placeholder="Search.." id="sbar">
+      <button class="main" type="submit">Search</button>
+    </form>
+  </div>
+  <br>
+  <div>
+    <h2 th:text="${resultStr}"/>
+  </div>
+</main>
+<footer>
+  <h4>Thank you for your attention!</h4>
+  <a href="/webshop">Back to home</a>
+</footer>
+</body>
+
+</html>

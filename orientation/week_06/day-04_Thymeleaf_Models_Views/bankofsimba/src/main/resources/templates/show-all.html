@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Thymeleaf Exercise #</title>
+  <link rel="stylesheet" th:href="@{/style.css}"/>
+  <meta charset="utf-8"/>
+</head>
+<body>
+
+<table>
+  <tr>
+    <th>id</th>
+    <th>Name</th>
+    <th>Valuate in Zebra</th>
+    <th>Species</th>
+    <th>Status</th>
+    <th>Reliability</th>
+  </tr>
+  <tr th:each="(account, accountStat :${accountList})">
+    <td th:text="'#'+${accountStat.count}"/>
+    <td th:text="${account.getName}"/>
+    <td th:text="${account.getBalance}"/>
+    <td th:text="${account.getAnimalType}"/>
+    <td th:text="${account.decideIsKing}" th:attr="class=${account.vlmi}"/>
+    <td th:text="${account.isReliable}"/>
+  </tr>
+</table>
+
+</body>
+</html>
