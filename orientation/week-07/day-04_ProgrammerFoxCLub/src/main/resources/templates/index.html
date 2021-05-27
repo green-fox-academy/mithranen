@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Look! A fox</title>
+  <!--  <style>
+      .red {
+        color: red
+      }
+
+      .green {
+        color: green
+      }
+    </style>-->
+</head>
+
+<ul>
+  <li>
+    <a href="/login">Login</a>
+  </li>
+  <li>
+    <a href="/">Information</a>
+  </li>
+  <li>
+    <a href="/nutrition-store">Nutrition Store</a>
+  </li>
+  <li>
+    <a href="/">Trick Center</a>
+  </li>
+  <li>
+    <a href="/">Action History</a>
+  </li>
+</ul>
+<img src="img/greenfox.png" alt="A fox">
+
+<p>This is <span th:text="${fox.getName()}"/>.
+  Currently living on
+  <span th:utext="${fox.getFood().getValue()}"/> and
+  <span th:utext="${fox.getDrink().getValue()}"/>.
+  He knows <span th:utext="${fox.getTrickList().size()}"/> tricks.
+</p>
+<h1>Known tricks</h1>
+<ul th:each="(trick:${fox.getTrickList()})">
+  <li th:text="${trick.getValue()}"/>
+</ul>
+
+
+<!--<form action="/useful/email">
+  <input type="text" name="emailAddress" value="" id="mail" placeholder="example@example.com"
+         th:color="${color}">
+  <input type="text" name="emailAddress2" value="" id="mail2" placeholder="example@example.com"
+         th:color="${color}">
+  <button type="submit">Validate!</button>
+</form>
+<br>-->
+<!--
+<span th:utext="${email}" th:attr="class=${color}"></span>
+<br>
+<br>
+<span th:utext="${email2}" th:attr="class=${color2}"></span>-->
+
+</body>
+</html>

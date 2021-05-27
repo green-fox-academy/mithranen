@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome!</title>
+  <!--  <style>
+      .red {
+        color: red
+      }
+
+      .green {
+        color: green
+      }
+    </style>-->
+</head>
+<ul>
+  <li>
+    <a href="/">Home</a>
+  </li>
+  <li>
+    <a href="/nutrition-store">Nutrition Store</a>
+  </li>
+</ul>
+
+<h1>Welcome to Programmer Fox Club!</h1>
+
+<p>Please provide a name, so you can associate it to your pet!</p>
+
+<form action="/login" method="post">
+  <label for="inputName">Name</label>
+  <input type="text" name="foxName" value="" id="inputName" placeholder="Give me a name...">
+  <!--th:color="${color}"-->
+  <button type="submit">GO!</button>
+</form>
+
+<!--<span th:utext="${email}" th:attr="class=${color}"></span>
+<br>
+<br>
+<span th:utext="${email2}" th:attr="class=${color2}"></span>-->
+
+</body>
+</html>

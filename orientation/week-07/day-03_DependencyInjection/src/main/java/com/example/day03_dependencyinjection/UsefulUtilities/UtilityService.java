@@ -25,6 +25,19 @@ public class UtilityService {
     return colors.get(random.nextInt(colors.size()));
   }
 
+  public String getAlertStyle(String inputEmail) {
+    if (!inputEmail.contains("@") && !inputEmail.contains(".")) {
+      return "red";
+    }
+    return "green";
+  }
+
+  public String validateEmail(String inputEmail) {
+    if (!inputEmail.contains("@") && !inputEmail.contains(".")) {
+      return inputEmail + " is not a valid email address!";
+    }
+    return inputEmail + " is a valid email address!";
+  }
 
   public String caesar(String text, int number) {
     if (number < 0) {
