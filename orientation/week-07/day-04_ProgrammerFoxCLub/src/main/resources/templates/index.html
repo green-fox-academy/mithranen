@@ -25,7 +25,8 @@
     <a href="/">Information</a>
   </li>
   <li>
-    <a href="/nutrition-store">Nutrition Store</a>
+    <a th:href="@{/nutrition-store/(loggedFoxName=${loggedFoxName})}">Nutrition Store</a>
+<!--    <a th:href="nutrition-store">Nutrition Store</a>-->
   </li>
   <li>
     <a href="/">Trick Center</a>

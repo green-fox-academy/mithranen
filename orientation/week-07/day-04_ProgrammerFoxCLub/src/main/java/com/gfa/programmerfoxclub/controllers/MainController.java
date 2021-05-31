@@ -2,8 +2,6 @@ package com.gfa.programmerfoxclub.controllers;
 
 import com.gfa.programmerfoxclub.modules.Drink;
 import com.gfa.programmerfoxclub.modules.Food;
-import com.gfa.programmerfoxclub.modules.Fox;
-import com.gfa.programmerfoxclub.modules.Trick;
 import com.gfa.programmerfoxclub.services.FoxService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class MainController {
 
-  private String loggedFoxName;
 
   //Fields
+  private String loggedFoxName;
   private FoxService foxservice;
 
   @Autowired
@@ -31,13 +29,14 @@ public class MainController {
   @RequestMapping(path = "/", method = RequestMethod.GET)
   public String getHome(Model model,
       @RequestParam(defaultValue = "Mr. Fox", required = false) String foxName) {
-    //model.addAttribute("foxName", foxName);
+    model.addAttribute("loggedFox", foxservice.findFoxByName(loggedFoxName));
     model.addAttribute("fox", foxservice.findFoxByName(foxName));
+    model.addAttribute("loggedFoxName", loggedFoxName);
     return "index";
   }
 
   @RequestMapping(path = "/login", method = RequestMethod.GET)
-  public String getLogin() {
+  public String getLoginPage() {
     return "login";
   }
 
@@ -50,14 +49,17 @@ public class MainController {
   }
 
   @RequestMapping(path = "/nutrition-store", method = RequestMethod.GET)
-  public String getNutritionStore() {
+  public String getNutritionStore(Model model, @RequestParam String loggedFoxName) {
+    model.addAttribute("loggedFox", foxservice.findFoxByName(loggedFoxName));
+
+    //return "/nutrition-store/?loggedFoxName=" + loggedFoxName;
+    //Food.values(); Drink.values();
     return "/nutrition-store";
   }
 
   @RequestMapping(path = "/nutrition-store", method = RequestMethod.POST)
-  public String postNutritionStore(Model model, @RequestParam Food food,
-      @RequestParam Drink drink) {
-    foxservice.editingFoxFoodDrink(loggedFoxName, food, drink);
+  public String updateNutritionStore(Food food, Drink drink) {
+    foxservice.editFoxFoodDrink(loggedFoxName, food, drink);
     return "redirect:/?foxName=" + loggedFoxName;
   }
 

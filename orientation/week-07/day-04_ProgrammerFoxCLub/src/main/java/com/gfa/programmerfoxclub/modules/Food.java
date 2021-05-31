@@ -1,6 +1,7 @@
 package com.gfa.programmerfoxclub.modules;
 
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 public enum Food {
@@ -23,6 +24,7 @@ public enum Food {
     return value;
   }
 
+  //Setter
   public void setValue(String value) {
     this.value = value;
   }

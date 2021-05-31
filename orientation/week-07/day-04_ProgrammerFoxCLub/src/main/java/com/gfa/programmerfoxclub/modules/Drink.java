@@ -13,10 +13,11 @@ public enum Drink {
   private String value;
 
   //Constructors
-  Drink (String value) {
+  Drink(String value) {
     this.value = value;
   }
 
+  //Setter
 
 }
 

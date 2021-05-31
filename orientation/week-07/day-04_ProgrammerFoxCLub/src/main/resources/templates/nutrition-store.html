@@ -25,12 +25,18 @@
 
 <form action="/nutrition-store" method="post">
   <label for="foodId">Food</label>
-  <select name="food" id="foodId">
+  <select th:object="${loggedFox}" name="food" id="foodId">
+    <!--    <option value="FLESH" th:selected="*{getFood()} == 'FLESH'">flesh</option>
+        <option value="HIKER" th:selected="*{getFood()} == 'HIKER'">hiker</option>
+        <option value="PIZZA" th:selected="*{getFood().getValue()} == 'PIZZA'">pizza</option>
+        <option value="CHICKEN" th:selected="*{getFood().getValue()} == 'CHICKEN'">chicken</option>
+        <option value="BUG" th:selected="*{getFood().getValue()} == 'BUG'">bug</option>-->
     <option value="FLESH">flesh</option>
     <option value="PIZZA">pizza</option>
     <option value="CHICKEN">chicken</option>
     <option value="BUG">bug</option>
     <option value="HIKER">hiker</option>
+
   </select>
   <label for="drinkId">Drink</label>
   <select name="drink" id="drinkId">
@@ -39,6 +45,14 @@
     <option value="SCOTCH">scotch</option>
   </select>
   <button type="submit">Change!</button>
+</form>
+<br>
+<form action="/nutrition-store" method="post">
+  <label for="foxesId">All foxes</label>
+  <select name="foxes" id="foxesId">
+    <option value="FLESH" selected="selected">flesh</option>
+  </select>
+  <button type="submit">Find!</button>
 </form>
 
 </body>

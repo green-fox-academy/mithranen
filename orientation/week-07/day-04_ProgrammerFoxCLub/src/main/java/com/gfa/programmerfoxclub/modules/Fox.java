@@ -27,10 +27,8 @@ public class Fox {
   }
 
   public Fox(String foxName, List<Trick> trickList, Food food, Drink drink) {
-    this.name = foxName;
+    this(foxName, food, drink); //useing 34 constructor - constructor reusing
     this.trickList = trickList;
-    this.food = food;
-    this.drink = drink;
   }
 
   public Fox(String foxName, Food food, Drink drink) {
@@ -42,21 +40,22 @@ public class Fox {
 
   //
   //Methods
-  @Override
+/*  @Override
   public String toString() {
-    if (!trickList.isEmpty())
-    return "This is "
-        + name + "."
-        + "Currently living on " + food + " and " + drink + "."
-        + "He knows " + trickList + " tricks.\n";
+    if (!trickList.isEmpty()) {
+      return "This is "
+          + name + "."
+          + "Currently living on " + food + " and " + drink + "."
+          + "He knows " + trickList + " tricks.\n";
+    }
     return "This is "
         + name + "."
         + "Currently living on " + food + " and " + drink + "."
         + "He knows " + 0 + " tricks.\n";
-  }
+  }*/
 
   //
   //Getter and setter
-  //By Spring
+  //By Lombok
 
 }

@@ -21,9 +21,11 @@ public class FoxService {
 
   //
   //Constructors
+/*
   public FoxService(List<Fox> foxes) {
     this.foxes = foxes;
   }
+*/
 
   public FoxService() {
     this.foxes = new ArrayList<>();
@@ -45,7 +47,7 @@ public class FoxService {
     return add(new Fox(foxName, Collections.singletonList(Trick.AMBUSH), Food.BUG, Drink.BLOOD));
   }
 
-  public void editingFoxFoodDrink(String foxName, Food food, Drink drink) {
+  public void editFoxFoodDrink(String foxName, Food food, Drink drink) {
     for (Fox fox : foxes) {
       if (foxName.equals(fox.getName())) {
         fox.setFood(food);

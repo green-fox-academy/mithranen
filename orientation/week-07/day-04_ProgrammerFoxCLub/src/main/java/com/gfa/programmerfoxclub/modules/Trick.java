@@ -23,6 +23,8 @@ public enum Trick {
     this.value = value;
   }
 
+  //Setter
+
 }
 
 
