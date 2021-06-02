@@ -6,12 +6,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
 @Entity
-@Table
+@Table(name = "todo_list")
 public class ToDo {
 
   //fields
@@ -19,16 +21,14 @@ public class ToDo {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long id;
   private String title;
+  private String description;
   private boolean urgent;
   private boolean done;
 
   //constructors
-  public ToDo() {
-  }
-
-  public ToDo(long id, String title, boolean urgent, boolean done) {
-    this.id = id;
+  public ToDo(String title, String description, boolean urgent, boolean done) {
     this.title = title;
+    this.description = description;
     this.urgent = urgent;
     this.done = done;
   }

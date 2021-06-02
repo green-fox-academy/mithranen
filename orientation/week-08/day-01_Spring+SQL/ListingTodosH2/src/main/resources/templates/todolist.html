@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Todo CRUD App</title>
+</head>
+<body>
+<style>
+  td, tr {
+    border-collapse: collapse;
+    border: solid darkgrey 1px;
+  }
+</style>
+<h1>Todos for today:</h1>
+
+<!--th:action="@{/update-food(foodId=*{foodId})}-->
+<!--
+<a th:href="@{/index(param1='value1',param2='value2')}">
+-->
+<!--
+<a th:href="@{'/edit-food/' + ${food.foodId}}"> editFoodWith Path variable </a>
+-->
+
+<!--<form th:action="@{'/todo/search?searchedWord='+${searchedWord}+'&option='+${option}}" method="get">
+  <input name="searchedWord" type="text" placeholder="Search..">
+  <button type="submit">Search</button>
+  <select name="option">
+    <option value="title">by title</option>
+    <option value="content">by content</option>
+    <option value="description">by description</option>
+  </select>
+</form>-->
+
+
+<form action="/todo/search" method="get">
+  <input name="searchedWord" type="text" placeholder="Search..">
+  <button type="submit">Search</button>
+  <select name="option">
+    <option value="title">by title</option>
+    <option value="content">by content</option>
+    <option value="description">by description</option>
+  </select>
+</form>
+<br>
+<table>
+  <thead>
+  <tr>
+    <td><b>Id</b></td>
+    <td><b>Title</b></td>
+    <td><b>Description</b></td>
+    <td><b>Urgent</b></td>
+    <td><b>Done</b></td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="todo:${todos}">
+    <td th:text="${todo.id}"/>
+    <td th:text="${todo.title}"/>
+    <td th:text="${todo.description}"/>
+    <td th:text="${todo.urgent}"/>
+    <td th:text="${todo.done}"/>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>
