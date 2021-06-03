@@ -1,9 +1,11 @@
 package com.gfa.day01_springsql.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,12 +27,28 @@ public class ToDo {
   private boolean urgent;
   private boolean done;
 
+  @ManyToOne(cascade = CascadeType.PERSIST)
+  private Assignee assignee;
+
   //constructors
+  public ToDo(Assignee assignee) {
+    this.assignee = assignee;
+  }
+
   public ToDo(String title, String description, boolean urgent, boolean done) {
     this.title = title;
     this.description = description;
     this.urgent = urgent;
     this.done = done;
+  }
+
+  public ToDo(String title, String description, boolean urgent, boolean done,
+      Assignee assignee) {
+    this.title = title;
+    this.description = description;
+    this.urgent = urgent;
+    this.done = done;
+    this.assignee = assignee;
   }
 
   //getters and setters --> Lombok

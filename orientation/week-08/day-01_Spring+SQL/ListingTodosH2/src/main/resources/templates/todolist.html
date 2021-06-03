@@ -42,6 +42,7 @@
   </select>
 </form>
 <br>
+
 <table>
   <thead>
   <tr>
@@ -50,6 +51,7 @@
     <td><b>Description</b></td>
     <td><b>Urgent</b></td>
     <td><b>Done</b></td>
+    <td><b><a href="/todo/assignee-list">List of Assignees</a></b></td>
   </tr>
   </thead>
   <tbody>
@@ -59,6 +61,8 @@
     <td th:text="${todo.description}"/>
     <td th:text="${todo.urgent}"/>
     <td th:text="${todo.done}"/>
+    <td>
+    </td>
   </tr>
   </tbody>
 </table>

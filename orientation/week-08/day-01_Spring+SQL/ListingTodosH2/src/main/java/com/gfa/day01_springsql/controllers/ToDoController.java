@@ -4,15 +4,16 @@ package com.gfa.day01_springsql.controllers;
 //    Add a public String list() method which maps to / and /list in the controller, which returns with "This is my first Todo" string. Use the @ResponseBody annotation.
 //    Run the application. If all works fine, then you can go ahead.
 
+
 import com.gfa.day01_springsql.repositories.ToDoRepository;
-import java.util.List;
-import java.util.stream.Collectors;
+
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,8 +31,9 @@ public class ToDoController {
     this.toDoRepository = toDoRepository;
   }
 
+  //Read TodoList
   @RequestMapping(path = {"/", "/list"}, method = RequestMethod.GET)
-  public String list(Model model) {
+  public String listingTodos(Model model) {
     model.addAttribute("todos", toDoRepository.findAll());
     return "todolist";
   }
@@ -61,6 +63,7 @@ public class ToDoController {
     return "todolist";
   }*/
 
+  //Searching in TodoList
   @RequestMapping(path = "/search", method = RequestMethod.GET)
   public String searching(Model model, @RequestParam String searchedWord,
       @RequestParam String option) {
@@ -75,7 +78,9 @@ public class ToDoController {
       case "content": {
         String searchedWord2 = searchedWord;
         model.addAttribute("todos",
-            toDoRepository.findByTitleContainingIgnoreCaseOrDescriptionContainingIgnoreCase(searchedWord, searchedWord2));
+            toDoRepository
+                .findByTitleContainingIgnoreCaseOrDescriptionContainingIgnoreCase(searchedWord,
+                    searchedWord2));
       }
     }
     return "todolist";

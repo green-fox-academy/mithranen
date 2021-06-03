@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>List of Assignees CRUD</title>
+</head>
+<body>
+
+
+<table>
+  <thead>
+  <tr>
+    <td><b>Id</b></td>
+    <td><b>Name</b></td>
+    <td><b>Email</b></td>
+    <td>
+      <form>
+        <input type="submit" value="Create" formaction="/todo/create-assignee" formmethod="get">
+      </form>
+    </td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="assignee:${assignees}">
+    <td th:text="${assignee.id}"/>
+    <td th:text="${assignee.name}"/>
+    <td th:text="${assignee.email}"/>
+    <td>
+      <form>
+        <!--
+                //full url is needed for path variable!
+        -->
+        <input type="submit" value="Edit"
+               th:formaction="@{'/todo/update-assignee/' + ${assignee.id}}"
+               formmethod="get">
+        <input type="submit" value="Delete" th:formaction="@{'/todo/delete/' + ${assignee.id}}"
+               formmethod="post">
+      </form>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+</body>
+</html>

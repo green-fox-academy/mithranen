@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Assignee Manager</title>
+</head>
+<body>
+
+<!--
+    <td th:text="${assignee.id}"/>
+-->
+<form method="post"
+      action="/todo/create-assignee">
+  <input type="text" th:field="${assignee.id}" hidden>
+
+  <label for="name">Name</label>
+  <input id="name" type="text" th:field="${assignee.name}">
+  <!-- //th:value="${assignee.name}" if th: field &ndash;&gt;value is not needed-->
+
+  <label for="email">Email</label>
+  <input id="email" type="text" th:field="${assignee.email}">
+
+  <input type="submit" value="Create">
+</form>
+
+</body>
+</html>
