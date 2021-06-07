@@ -2,7 +2,7 @@ package com.gfa.day01_springsql;
 
 import com.gfa.day01_springsql.controllers.ToDoController;
 import com.gfa.day01_springsql.model.Assignee;
-import com.gfa.day01_springsql.services.MainService;
+import com.gfa.day01_springsql.services.AssigneeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -15,10 +15,10 @@ public class ListingTodosH2Application implements CommandLineRunner {
   //Lehetne egyből repoból
   /*  private ToDoRepository todoRepository;*/
   private ToDoController toDoController;
-  private MainService mainService;
+  private AssigneeService mainService;
 
   @Autowired
-  public ListingTodosH2Application(ToDoController toDoController, MainService mainService) {
+  public ListingTodosH2Application(ToDoController toDoController, AssigneeService mainService) {
     this.toDoController = toDoController;
     this.mainService = mainService;
   }

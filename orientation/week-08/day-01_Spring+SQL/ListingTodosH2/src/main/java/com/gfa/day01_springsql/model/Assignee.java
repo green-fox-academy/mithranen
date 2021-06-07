@@ -44,7 +44,5 @@ public class Assignee {
     this.name = name;
     this.email = email;
   }
-
-
 }
 

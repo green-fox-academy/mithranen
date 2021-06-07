@@ -7,20 +7,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MainService {
+public class AssigneeService {
 
   private final AssigneeRepository assigneeRepository;
 
   @Autowired
-  public MainService(AssigneeRepository assigneeRepository) {
+  public AssigneeService(AssigneeRepository assigneeRepository) {
     this.assigneeRepository = assigneeRepository;
   }
 
-
   //Get all Assignee
-  public List<Assignee> getAllAssignee(){
+/*  public List<Assignee> getAllAssignee(){
     return (List<Assignee>) assigneeRepository.findAll();
-  }
+  }*/
 
   //Create
   public Assignee getEmptyAssignee() {
@@ -38,7 +37,7 @@ public class MainService {
 
   //Update Assignee name or email
   public Assignee getUpdatableAssignee(long assigneeId) {
-    return assigneeRepository.findById(assigneeId).get();
+    return assigneeRepository.findById(assigneeId).orElse(null); //if null!!!
   }
 
   public void updateAssignee(Assignee assignee, long assigneeId) {
@@ -50,6 +49,4 @@ public class MainService {
   public void deleteAssigneeById(long assigneeId) {
     assigneeRepository.deleteById(assigneeId);
   }
-
-
 }

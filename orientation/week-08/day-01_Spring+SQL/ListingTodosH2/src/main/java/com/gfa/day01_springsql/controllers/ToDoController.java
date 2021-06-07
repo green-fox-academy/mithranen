@@ -5,8 +5,12 @@ package com.gfa.day01_springsql.controllers;
 //    Run the application. If all works fine, then you can go ahead.
 
 
+import com.gfa.day01_springsql.model.ToDo;
 import com.gfa.day01_springsql.repositories.ToDoRepository;
 
+import com.gfa.day01_springsql.services.ToDoService;
+import java.awt.Checkbox;
+import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,15 +29,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class ToDoController {
 
   private ToDoRepository toDoRepository;
+  private ToDoService toDoService;
 
   @Autowired
-  public ToDoController(ToDoRepository toDoRepository) {
+  public ToDoController(ToDoRepository toDoRepository, ToDoService toDoService) {
     this.toDoRepository = toDoRepository;
+    this.toDoService = toDoService;
   }
 
   //Read TodoList
   @RequestMapping(path = {"/", "/list"}, method = RequestMethod.GET)
-  public String listingTodos(Model model) {
+  public String listTodos(Model model) {
     model.addAttribute("todos", toDoRepository.findAll());
     return "todolist";
   }
@@ -64,9 +70,17 @@ public class ToDoController {
   }*/
 
   //Searching in TodoList
-  @RequestMapping(path = "/search", method = RequestMethod.GET)
+/*  @RequestMapping(path = "/search", method = RequestMethod.GET)
   public String searching(Model model, @RequestParam String searchedWord,
-      @RequestParam String option) {
+      @RequestParam String option,
+      @RequestParam(name = "isActive", defaultValue = "false") Boolean isActive) {
+    model.addAttribute("todoList", toDoService.filterTodos(searchedWord, option, isActive));
+    return "todolist";
+  }*/
+
+//Example for switch - Searching in TodoList by options
+  @RequestMapping(path = "/search", method = RequestMethod.GET)
+  public String searching(Model model, @RequestParam String searchedWord, @RequestParam String option) {
     switch (option) {
       case "title":
         model.addAttribute("todos", toDoRepository.findByTitleContainsIgnoreCase(searchedWord));
@@ -76,17 +90,13 @@ public class ToDoController {
             toDoRepository.findByDescriptionContainsIgnoreCase(searchedWord));
         break;
       case "content": {
-        String searchedWord2 = searchedWord;
         model.addAttribute("todos",
             toDoRepository
                 .findByTitleContainingIgnoreCaseOrDescriptionContainingIgnoreCase(searchedWord,
-                    searchedWord2));
+                    searchedWord));
       }
     }
     return "todolist";
   }
 
-
 }
-
-

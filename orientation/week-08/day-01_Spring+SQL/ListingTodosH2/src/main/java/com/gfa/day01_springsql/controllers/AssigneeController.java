@@ -1,7 +1,7 @@
 package com.gfa.day01_springsql.controllers;
 
 import com.gfa.day01_springsql.model.Assignee;
-import com.gfa.day01_springsql.services.MainService;
+import com.gfa.day01_springsql.services.AssigneeService;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,10 +18,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/todo")
 public class AssigneeController {
 
-  private MainService mainService;
+  private AssigneeService mainService;
 
   @Autowired
-  public AssigneeController(MainService mainService) {
+  public AssigneeController(AssigneeService mainService) {
     this.mainService = mainService;
   }
 
@@ -43,8 +43,14 @@ public class AssigneeController {
   @RequestMapping(path = {"/update-assignee/{assigneeId}"}, method = RequestMethod.GET)
   public String displayUpdatableAssignee(Model model,
       @PathVariable(name = "assigneeId") long assigneeId) {
-    model.addAttribute("assignee", mainService.getUpdatableAssignee(assigneeId));
-    model.addAttribute("update", "update");
+
+    Assignee checkedAssignee = mainService.getUpdatableAssignee(assigneeId);
+    if (checkedAssignee != null) {
+      model.addAttribute("assignee", mainService.getUpdatableAssignee(assigneeId));
+      model.addAttribute("mode", "update");
+    } else {
+      System.err.println("Not find assignee by id!!"); //error page or create assignee todo
+    }
     return "manage-assignee";
   }
 
@@ -59,15 +65,13 @@ public class AssigneeController {
   @RequestMapping(path = {"/create-assignee"}, method = RequestMethod.GET)
   public String displayCreatableAssignee(Model model) {
     model.addAttribute("assignee", mainService.getEmptyAssignee());
-    model.addAttribute("create", "create");
-    return "create-assignee";
+    model.addAttribute("mode", "create");
+    return "manage-assignee";
   }
 
-  @RequestMapping(path = {"/create-assignee"}, method = RequestMethod.POST)
+  @RequestMapping(path = {"/create-assignee/{assigneeId}"}, method = RequestMethod.POST)
   public String createAssignee(@ModelAttribute Assignee newAssignee) {
     mainService.createAssignee(newAssignee); //!!main service method!!
     return "redirect:/todo/assignee-list";
   }
-
-
 }

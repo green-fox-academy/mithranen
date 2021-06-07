@@ -10,7 +10,7 @@
     <td th:text="${assignee.id}"/>
 -->
 <form method="post"
-      th:action="@{'/todo/update-assignee/' + ${assignee.id}}">
+      th:action="@{'/todo/' + (${mode}=='update' ? 'update-assignee/' : 'create-assignee/') + ${assignee.id}}">
   <input type="text" th:field="${assignee.id}" hidden>
 
   <label for="name">Name</label>
@@ -20,7 +20,7 @@
   <label for="email">Email</label>
   <input id="email" type="text" th:field="${assignee.email}">
 
-  <input type="submit" value="Update">
+  <input type="submit" th:value="${mode}=='update'?'Update':'Create'">
 </form>
 
 </body>

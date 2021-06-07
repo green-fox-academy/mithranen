@@ -19,4 +19,6 @@ public interface ToDoRepository extends CrudRepository<ToDo, Long> {
   List<ToDo> findByDescriptionContainsIgnoreCase(String searchedWord);
 
   List<ToDo> findByTitleContainingIgnoreCaseOrDescriptionContainingIgnoreCase(String searchedWord, String searchedWord2);
+
+
 }

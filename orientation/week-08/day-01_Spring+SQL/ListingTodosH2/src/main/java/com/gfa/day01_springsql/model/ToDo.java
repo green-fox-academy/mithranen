@@ -31,10 +31,6 @@ public class ToDo {
   private Assignee assignee;
 
   //constructors
-  public ToDo(Assignee assignee) {
-    this.assignee = assignee;
-  }
-
   public ToDo(String title, String description, boolean urgent, boolean done) {
     this.title = title;
     this.description = description;
@@ -42,16 +38,9 @@ public class ToDo {
     this.done = done;
   }
 
-  public ToDo(String title, String description, boolean urgent, boolean done,
-      Assignee assignee) {
-    this.title = title;
-    this.description = description;
-    this.urgent = urgent;
-    this.done = done;
-    this.assignee = assignee;
-  }
-
   //getters and setters --> Lombok
 
-
+  public boolean isDone() {
+    return done;
+  }
 }
