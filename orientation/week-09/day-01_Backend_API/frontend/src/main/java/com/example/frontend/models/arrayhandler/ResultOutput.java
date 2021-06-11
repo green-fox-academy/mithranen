@@ -3,8 +3,10 @@ package com.example.frontend.models.arrayhandler;
 import java.util.Arrays;
 
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
+@Setter
 public class ResultOutput {
 
   private Integer result;
