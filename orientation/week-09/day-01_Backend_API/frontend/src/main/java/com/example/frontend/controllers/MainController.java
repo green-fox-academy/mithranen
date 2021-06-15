@@ -1,6 +1,6 @@
 package com.example.frontend.controllers;
 
-import com.example.frontend.models.Log;
+import com.example.frontend.models.log.Log;
 import com.example.frontend.service.LogService;
 import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package com.example.frontend.controllers;
 
-import com.example.frontend.models.Log;
+import com.example.frontend.models.log.Log;
 import com.example.frontend.models.appendA.AppendA;
 import com.example.frontend.models.arrayhandler.InputObject;
 import com.example.frontend.models.arrayhandler.ResultArrayOutput;
@@ -10,9 +10,9 @@ import com.example.frontend.models.dountil.DoUntil;
 import com.example.frontend.models.dountil.DoUntilResult;
 import com.example.frontend.models.error.Error;
 import com.example.frontend.models.greeter.Person;
+import com.example.frontend.models.log.LogsAndStaticDTO;
 import com.example.frontend.service.LogService;
 import java.util.Date;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -96,14 +96,16 @@ public class MainRestController {
       for (int i = 0; i <= doUntil.getUntil(); i++) {
         result += i;
       }
-      logService.saveLog(new Log(new Date(), "/dountil/" + action, logService.saveObjectToJson(doUntil)));
+      logService
+          .saveLog(new Log(new Date(), "/dountil/" + action, logService.saveObjectToJson(doUntil)));
       return ResponseEntity.status(HttpStatus.OK).body(new DoUntilResult(result));
     } else if (action.equals("factor")) {
       result = 1L;
       for (int i = 1; i <= doUntil.getUntil(); i++) {
         result *= i;
       }
-      logService.saveLog(new Log(new Date(), "/dountil/" + action, logService.saveObjectToJson(doUntil)));
+      logService
+          .saveLog(new Log(new Date(), "/dountil/" + action, logService.saveObjectToJson(doUntil)));
       return ResponseEntity.status(HttpStatus.OK).body(new DoUntilResult(result));
     }
     //return ResponseEntity.badRequest().build();
@@ -118,8 +120,7 @@ public class MainRestController {
       logService.saveLog(new Log(new Date(), "/arrays", null));
       return ResponseEntity.status(HttpStatus.BAD_REQUEST)
           .body(new Error("Please provide what to do with the numbers!"));
-    }
-    else if (inputObject.getWhat().equals("sum") || inputObject.getWhat().equals("multiply")) {
+    } else if (inputObject.getWhat().equals("sum") || inputObject.getWhat().equals("multiply")) {
       logService.saveLog(new Log(new Date(), "/arrays", logService.saveObjectToJson(inputObject)));
 
       return ResponseEntity.status(HttpStatus.OK).body(
@@ -133,7 +134,10 @@ public class MainRestController {
 
   //Get log endpoint
   @RequestMapping(path = "/log", method = RequestMethod.GET)
-  public List<Log> getAllLog() {
-    return logService.findAllLogJpql();
+  public LogsAndStaticDTO getAllLog() {
+    LogsAndStaticDTO logsAndStaticDTO = new LogsAndStaticDTO();
+    logsAndStaticDTO.setEntries(logService.findAllLogJpql());
+    logsAndStaticDTO.setEntry_count(logService.countLogs());
+    return logsAndStaticDTO;
   }
 }

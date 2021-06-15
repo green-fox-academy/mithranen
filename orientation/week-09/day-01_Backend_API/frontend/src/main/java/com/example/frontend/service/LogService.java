@@ -1,14 +1,10 @@
 package com.example.frontend.service;
 
-import com.example.frontend.models.Log;
-import com.example.frontend.models.dountil.DoUntil;
+import com.example.frontend.models.log.Log;
 import com.example.frontend.repositories.LogRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
-import com.fasterxml.jackson.databind.deser.DefaultDeserializationContext;
 import java.util.List;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,7 +25,12 @@ public class LogService {
 
   //Read all logs
   public List<Log> findAllLogJpql() {
-    return logRepository.findAll();
+    return logRepository.findAllLog();
+  }
+
+  //Count logs from DB
+  public int countLogs (){
+    return logRepository.countAllLogs();
   }
 
   //Java to JSON object
