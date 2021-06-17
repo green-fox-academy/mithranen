@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Main page</title>
+</head>
+<body>
+
+<h1>Main Page</h1>
+<br>
+<a href="/inhabitants">Show inhabitants</a>
+<br>
+<a href="/inhabitant/add">Add inhabitants</a>
+
+<form action="/search" method="get">
+  <div>
+    <input name="searchedName" type="text" placeholder="Searching by name..">
+    <button type="submit">Search</button>
+  </div>
+
+</form>
+</body>
+</html>

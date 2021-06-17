@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Details of Inhabitant</title>
+</head>
+<body>
+
+<div th:if="${animal}">
+  <!--
+    <h1 th:text="${animal.name}" th:style="(${isBabyAnimal} == true) ? 'color: pink' : 'color: blue'"></h1> //TODO csak pink
+  -->
+
+  <h1 th:text="${animal.name}"
+      th:if="${animal.gender == T(com.gfa.winnieandthepooh.models.Gender).FEMALE}"
+      th:style="(${isBabyAnimal} == true) ? 'color: pink' : 'color: default'"></h1>
+  <h1 th:text="${animal.name}"
+      th:if="${animal.gender == T(com.gfa.winnieandthepooh.models.Gender).MALE}"
+      th:style="(${isBabyAnimal} == true) ? 'color: blue' : 'color: default'"></h1>
+
+  <h3 th:text="'My age is: ' + ${animal.age}"></h3>
+  <h3 th:text="'My gender is: ' + ${animal.gender}"></h3>
+  <p>I have
+    <b th:text="${numberOfHouses}"></b> houses that are painted
+    <b th:text="${colorsOfHouses}"></b> and have
+    <b th:text="${numberOfRooms}"></b> room(s)!
+  </p>
+
+  <!-- //with sima szöveg
+    <p th:text="'I have ' + ${numberOfHouses} + ' houses that are painted ' + ${colorsOfHouses} + ' and have ' + ${numberOfRooms} + ' room(s)!'"></p>
+  -->
+
+  <br>
+
+  <h4>List of <em>my</em> house(s)</h4>
+  <ul th:each="house:${animal.getHousesOfAnimal()}">
+    <li>
+      <a th:text="${house.getName()}" th:href="'/inhabitant/' + ${animal.id}"></a>
+    </li>
+  </ul>
+
+</div>
+<div th:unless="${animal}">
+  <h3 th:text="'No inhabitant found by this name: ' + ${searchedName}  + '!'"></h3>
+</div>
+
+</body>
