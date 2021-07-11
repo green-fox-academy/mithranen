@@ -28,7 +28,7 @@ public class Team {
   public Team(TeamDTO teamDTO) {
     teamName = teamDTO.getCoNm();
     isoCode = teamDTO.getCoId();
-    stageGroup = teamDTO.getScd();
+    stageGroup = teamDTO.getSnm();
   }
 
   public Team(String teamName, String isoCode) {

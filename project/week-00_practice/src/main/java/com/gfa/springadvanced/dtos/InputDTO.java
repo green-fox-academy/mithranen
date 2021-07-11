@@ -1,5 +1,6 @@
 package com.gfa.springadvanced.dtos;
 
+import com.google.gson.annotations.SerializedName;
 import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
@@ -7,5 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class InputDTO {
-private List<StageDTO> Stages;
+
+  @SerializedName("Stages")
+  private List<StageDTO> stages;
 }

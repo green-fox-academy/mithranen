@@ -1,5 +1,6 @@
 package com.gfa.springadvanced.dtos;
 
+import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -7,16 +8,21 @@ import lombok.Setter;
 @Setter
 public class TeamDTO {
 
-  private String CoNm;
-  private String CoId;
-  private String Scd;
+  @SerializedName("CoNm")
+  private String coNm;
+
+  @SerializedName("CoId")
+  private String coId;
+
+  @SerializedName("Snm")
+  private String snm;
 
   public TeamDTO() {
   }
 
-  public TeamDTO(String coNm, String coId, String scd) {
-    CoNm = coNm;
-    CoId = coId;
-    Scd = scd;
+  public TeamDTO(String coNm, String coId, String snm) {
+    this.coNm = coNm;
+    this.coId = coId;
+    this.snm = snm;
   }
 }

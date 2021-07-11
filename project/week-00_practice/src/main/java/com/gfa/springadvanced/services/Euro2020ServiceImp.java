@@ -59,53 +59,49 @@ public class Euro2020ServiceImp implements Euro2020Service {
     List<TeamDTO> outputList = new ArrayList<>();
 
     for (int i = 0; i < inputDTO.getStages().size(); i++) {
-    TeamDTO teamDTO = new TeamDTO();
-      teamDTO.setScd(inputDTO.getStages().get(i).getScd());
+
+      String snm = inputDTO.getStages().get(i).getSnm();
 
       int sizeOfEventDTO = inputDTO.getStages().get(i).getEvents().size();
 
       for (int j = 0; j < sizeOfEventDTO; j++) {
 
         int sizeOfT1 = inputDTO.getStages().get(i).getEvents().get(j).getT1().size();
+
+        for (int k = 0; k < sizeOfT1; k++) {
+          TeamDTO teamDTOt1 = inputDTO.getStages().get(i).getEvents().get(j).getT1().get(k);
+
+          if (existsTeamNameInTeamDTOList(teamDTOt1, outputList)) {
+            teamDTOt1.setSnm(snm);
+            outputList.add(teamDTOt1);
+          }
+
+        }
         int sizeOfT2 = inputDTO.getStages().get(i).getEvents().get(j).getT2().size();
+        for (int k = 0; k < sizeOfT2; k++) {
+          TeamDTO teamDTOt2 = inputDTO.getStages().get(i).getEvents().get(j).getT2().get(k);
 
-        if (inputDTO.getStages().get(i).getEvents().get(j).getT1() != null) {
-          for (int k = 0; k < sizeOfT1; k++) {
-/*            if (!teamRepository.existsByTeamName(
-                inputDTO.getStages().get(i).getEvents().get(j).getT1().get(k).getCoNm())
-                && (!inputDTO.getStages().get(i).getEvents().get(j).getT1().get(k).getCoNm()
-                .equals("International")))*/
-            String teamName = inputDTO.getStages().get(i).getEvents().get(j).getT2().get(k).getCoNm();
-            if (validateTeamName(teamName)){
-
-              teamDTO.setCoNm(inputDTO.getStages().get(i)
-                  .getEvents().get(j).getT1().get(k).getCoNm());
-              teamDTO.setCoId(inputDTO.getStages()
-                  .get(i).getEvents().get(j).getT1().get(k).getCoId());
-              outputList.add(teamDTO);
-
-            } else if (!teamRepository.existsByTeamName(
-                inputDTO.getStages().get(i).getEvents().get(j).getT2().get(k).getCoNm())
-                && (!inputDTO.getStages().get(i).getEvents().get(j).getT2().get(k).getCoNm()
-                .equals("International"))) {
-
-              teamDTO.setCoNm(inputDTO.getStages().get(i)
-                  .getEvents().get(j).getT2().get(k).getCoNm());
-              teamDTO.setCoId(inputDTO.getStages()
-                  .get(i).getEvents().get(j).getT2().get(k).getCoId());
-              outputList.add(teamDTO);
-            }
+          if (existsTeamNameInTeamDTOList(teamDTOt2, outputList)) {
+            teamDTOt2.setSnm(snm);
+            outputList.add(teamDTOt2);
           }
         }
       }
     }
-
     return outputList;
   }
 
-  public boolean validateTeamName(String teamName) {
-    if (!teamName.equals("International") && !teamRepository.existsByTeamName(teamName)) {
+  //&& (teamDTO.getSnm().contains("Group"))
+  private boolean existsTeamNameInTeamDTOList(TeamDTO teamDTO, List<TeamDTO> teamDTOList) {
+    if (teamDTOList.isEmpty()) {
       return true;
+    }
+    for (TeamDTO team : teamDTOList) {
+      if (!teamDTO.getCoNm().equals("International")
+       /*  && (teamDTO.getCoId().equals(team.getCoId()))*/
+          && (!teamDTO.getCoNm().equals(team.getCoNm()))){
+        return true;
+      }
     }
     return false;
   }

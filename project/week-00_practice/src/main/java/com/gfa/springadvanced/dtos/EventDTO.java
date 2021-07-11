@@ -1,5 +1,6 @@
 package com.gfa.springadvanced.dtos;
 
+import com.google.gson.annotations.SerializedName;
 import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,6 +9,9 @@ import lombok.Setter;
 @Setter
 public class EventDTO {
 
-  private List<TeamDTO> T1;
-  private List<TeamDTO> T2;
+  @SerializedName("T1")
+  private List<TeamDTO> t1;
+
+  @SerializedName("T2")
+  private List<TeamDTO> t2;
 }

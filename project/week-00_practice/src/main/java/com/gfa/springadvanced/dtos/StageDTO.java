@@ -1,5 +1,6 @@
 package com.gfa.springadvanced.dtos;
 
+import com.google.gson.annotations.SerializedName;
 import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,7 +9,10 @@ import lombok.Setter;
 @Setter
 public class StageDTO {
 
-  private String Scd;
-  private List<EventDTO> Events;
+  @SerializedName("Snm")
+  private String snm;
+
+  @SerializedName("Events")
+  private List<EventDTO> events;
 
 }
